@@ -1,11 +1,12 @@
 import React from 'react';
 import Logo from '../../img/cofax.png';
 import CartWidget from './CartWidget';
+import {NavLink} from 'react-router-dom';
 
 const navbar = () => {
 
     const options = [
-        {id:0, title:'Categorías'},
+        {id:0, title:'Inicio'},
         {id:1,title:'Nosotros'},
         {id:2,title:'Armá tu PC'}
     ]
@@ -25,13 +26,21 @@ return (
                 >
                 <span className='navbar-toggler-icon'></span>
                 </button>
-                <a className="nav-title navbar-img" href="#"><img src={Logo} alt={"Logo de la empresa"} className='nav-img' />Cofax</a>
+                <NavLink className="nav-title navbar-img" to='/'><img src={Logo} alt={"Logo de la empresa"} className='nav-img' />Cofax</NavLink>
                 <div className="collapse navbar-collapse orden" id="navbarTogglerDemo03">
-                    <div className='navbar-nav mb-2 mb-lg-0'>
-                        {options.map(item => (<a className='nav-list' href='#'>{item.title}</a>))}
-                    </div>
+                    <ul className='navbar-nav mt-2 mb-2 mb-lg-0'>
+                        <li className='nav-item'>
+                            <NavLink className='nav-list' aria-current="page" to='/'>Inicio</NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink className='nav-list' to='/categoria/componentes'>Componentes</NavLink>
+                        </li>
+                        <li class="nav-item">
+                            <NavLink className='nav-list' to='/categoria/perifericos'>Perifericos</NavLink>
+                        </li>
+                    </ul>
                 </div>
-                <button className="btn nav-button" type="button">Ingresar</button>
+                <button className='btn nav-button' type="button">Ingresar</button>
                 <CartWidget />
             </div>
         </nav>

@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 import Gamer from '../img/gamer.webp';
 import Lider from '../img/dirigir.png';
 import Variedad from '../img/upc.png';
 import Precio from '../img/mejor-precio.png'
 
-const main = () => {
+const Main = () => {
   return (
     <>
-      <div className='container mt-5 landing'>
+        <div className='container mt-5 landing'>
         <div className='row'>
           <div className='col-5 titulo-y-subtitulo'>
             <h1 className='titulo'>Cofax Hardware</h1>
@@ -36,7 +36,7 @@ const main = () => {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default main
+export default Main

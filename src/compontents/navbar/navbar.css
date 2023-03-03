@@ -30,6 +30,8 @@
     color: white;
     text-decoration: none;
     position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .nav-list::after {
