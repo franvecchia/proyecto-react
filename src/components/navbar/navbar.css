@@ -1,0 +1,74 @@
+* {
+    background-color: #2A2530;
+    font-family: "Montserrat 400",Roboto,sans-serif;
+} 
+
+.nav-button {
+    border-radius: 50px;
+    padding: auto 10px;
+    font-weight: bold;
+    background-color: brown;
+    margin: 5px;
+}
+
+.nav-button:hover {
+    background-color: #b24a4a;
+    color: white;
+}
+
+.nav-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-list {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 20px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-list::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transition: all .3s;
+    will-change: width;
+}
+
+.nav-list:hover:after {
+    width: 100%;
+    right: 0;
+}
+
+.nav-img {
+    height: 50px;
+    width: 50px;
+}
+
+.carrito {
+    background-color: brown;
+    height: 25px;
+    width: 25px;
+    padding: 3px;
+}
+
+.orden {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.carrito-numero {
+    background-color: brown;
+}
