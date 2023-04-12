@@ -1,0 +1,41 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.texto-categorias {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.ver-mas {
+    text-decoration: none;
+    color: brown;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.ver-mas:hover {
+    text-decoration: underline;
+}
+
+.bg-fondo {
+    background-color: white;
+}
+
+.agregar-carrito {
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: brown;
+    border: 0px;
+    color: black;
+    text-decoration: none;
+}
+
+.agregar-carrito:hover {
+    background-color: #b24a4a;
+    color: white;
+}

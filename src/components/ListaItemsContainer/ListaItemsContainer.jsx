@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import './ItemListContainer.css'
+import './ListaItemsContainer.css'
 import {useParams} from 'react-router-dom';
-import ItemList from './ItemList';
-import Main from './Main';
+import ItemList from '../ListaItems/ListaItems';
+import Main from '../Main/Main';
 import {getFirestore, collection, getDocs, query, where} from 'firebase/firestore'
 
 
 
-const ItemListContainer = () => {
+const ListaItemsContainer = () => {
 
   const [data,setData] = useState([]);
   const {categoriaId} = useParams()
 
   useEffect(() => {
     const querydb = getFirestore();
-    const queryCollection = collection(querydb, 'productos');
+    const queryColleccion = collection(querydb, 'productos');
     if (categoriaId) {
-      const queryFilter = query(queryCollection, where('categoria', '==', categoriaId))
-      getDocs (queryFilter)
+      const queryFiltro = query(queryColleccion, where('categoria', '==', categoriaId))
+      getDocs (queryFiltro)
         .then(res => setData(res.docs.map(producto => ({id: producto.id, ...producto.data()}))))
     }else{
-      getDocs (queryCollection)
+      getDocs (queryColleccion)
         .then(res => setData(res.docs.map(producto => ({id: producto.id, ...producto.data()}))))
     } 
   }, [categoriaId])
@@ -40,4 +40,4 @@ const ItemListContainer = () => {
   )
 }
 
-export default ItemListContainer
+export default ListaItemsContainer

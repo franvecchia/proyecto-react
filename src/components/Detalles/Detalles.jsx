@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import './ItemListContainer.css'
-import { useCartContext } from '../CarritoContext'
+import './Detalles.css'
+import { UsarContextCarrito } from '../../CarritoContext'
 import {Link} from 'react-router-dom'
-import ContadorItems from './ContadorItems'
+import ContadorItems from '../ContadorItems/ContadorItems'
 
 const Detalles = ({data}) => {
 
   const [irAlCarrito, setIrAlCarrito] = useState(false);
-  const {agregarProducto} = useCartContext();
+  const {agregarProducto} = UsarContextCarrito();
 
   const onAdd = (cantidad) => {
     setIrAlCarrito(true);

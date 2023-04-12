@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../img/cofax.png';
-import CartWidget from './CartWidget';
+import CartWidget from '../CarritoWidget/CarritoWidget';
 import {NavLink} from 'react-router-dom';
 
 const navbar = () => {

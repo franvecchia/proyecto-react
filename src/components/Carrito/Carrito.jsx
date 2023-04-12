@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../CarritoContext'
-import ItemCarrito from './ItemCarrito';
+import { UsarContextCarrito } from '../../CarritoContext'
+import ItemCarrito from '../ItemCarrito/ItemCarrito';
 import './Carrito.css'
 import {addDoc, collection, getFirestore} from 'firebase/firestore'
 
 const Carrito = () => {
-    const {cart, precioTotal} = useCartContext();
-    const {vaciarCarrito} = useCartContext();
+    const {carrito, precioTotal} = UsarContextCarrito();
+    const {vaciarCarrito} = UsarContextCarrito();
 
     const order = {
       buyer: {
@@ -16,8 +16,8 @@ const Carrito = () => {
         phone: '123123',
         address: 'hola'
       },
-      items: cart.map(producto => ({id: producto.id, titulo: producto.titulo, precio: producto.precio, cantidad: producto.cantidad})),
-      total: precioTotal(),
+      items: carrito.map(producto => ({id: producto.id, titulo: producto.titulo, precio: producto.precio, cantidad: producto.cantidad})),
+      total: precioTotal()
     }
 
     const manejarClick = () => {
@@ -27,7 +27,7 @@ const Carrito = () => {
         .then(({id}) => console.log(id))
     }
 
-  if (cart.length === 0) {
+  if (carrito.length === 0) {
     return (
         <>
             <p className='no-hay-carrito mt-5'>No hay elementos en el carrito.</p>
@@ -39,7 +39,7 @@ const Carrito = () => {
   return (
     <>
       {
-         cart.map( product => <ItemCarrito key={product.id} product={product} />)
+         carrito.map( producto => <ItemCarrito key={producto.id} producto={producto} />)
       }
       <div className='carrito-extra container mt-5'>
       <p className='precio-total'>

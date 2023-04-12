@@ -1,41 +1,41 @@
 import React, {useContext, useState} from 'react'
-export const useCartContext = () =>  useContext(CarritoContext);
+export const UsarContextCarrito = () =>  useContext(CarritoContext);
 
 const CarritoContext = React.createContext([]);
 
-const CarritoProvider = ({children}) => {
-  const [cart, setearCarrito] = useState([]);
+const CarritoProveedor = ({children}) => {
+  const [carrito, setearCarrito] = useState([]);
 
   const agregarProducto = (item,cantidad) => {
     if (estaEnCarrito(item.id)) {
-      setearCarrito(cart.map(product => {
-        return product.id === item.id ? {...product, cantidad : product.cantidad + cantidad} : product
+      setearCarrito(carrito.map(producto => {
+        return producto.id === item.id ? {...producto, cantidad : producto.cantidad + cantidad} : producto
       }));
     } else {
-      setearCarrito([...cart, {...item, cantidad}]);
+      setearCarrito([...carrito, {...item, cantidad}]);
     }
   }
 
   const precioTotal = () => {
-    return cart.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
+    return carrito.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
   }
 
-  const productosTotales = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
+  const productosTotales = () => carrito.reduce((acumulador, productoActual) => acumulador + productoActual.cantidad, 0);
 
   const vaciarCarrito = () => setearCarrito([]);
 
   const estaEnCarrito = (id) => {
-    return cart.find(product => product.id === id) ? true : false;
+    return carrito.find(producto => producto.id === id) ? true : false;
   }
 
-  const borrarProducto = (id) => setearCarrito(cart.filter(product => product.id !== id));
+  const borrarProducto = (id) => setearCarrito(carrito.filter(producto => producto.id !== id));
 
   return (
-    <CarritoContext.Provider value={{vaciarCarrito, estaEnCarrito, borrarProducto, agregarProducto, precioTotal, productosTotales, cart}}>
+    <CarritoContext.Provider value={{vaciarCarrito, estaEnCarrito, borrarProducto, agregarProducto, precioTotal, productosTotales, carrito}}>
       {children}
     </CarritoContext.Provider>
 
   )
 }
 
-export default CarritoProvider
+export default CarritoProveedor

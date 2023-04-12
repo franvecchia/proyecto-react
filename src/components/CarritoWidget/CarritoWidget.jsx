@@ -1,12 +1,13 @@
 import React from 'react'
-import './navbar.css'
+import '../navbar/navbar.css'
+import './CarritoWidget.css'
 import Carrito from '../../img/carrito-de-compras.png'
 import { Link } from 'react-router-dom'
-import { useCartContext } from '../../CarritoContext'
+import { UsarContextCarrito } from '../../CarritoContext'
 
-const CartWidget = () => {
+const CarritoWidget = () => {
 
-    const {productosTotales} = useCartContext();
+    const {productosTotales} = UsarContextCarrito();
     
     return (
         <>
@@ -18,4 +19,4 @@ const CartWidget = () => {
     )
 }
 
-export default CartWidget
+export default CarritoWidget

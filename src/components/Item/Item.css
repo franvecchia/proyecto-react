@@ -1,0 +1,39 @@
+.card-box {
+    background-color:white ;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid grey;
+}
+
+.card-img {
+    height: 270px;
+    width: 270px;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.card-titulos {
+    margin: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    background-color:white;
+    text-align: center;
+}
+
+.ver-detalles {
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: brown;
+    margin-left: 75px;
+    border: 0px;
+    color: black;
+    text-decoration: none;
+}
+
+.ver-detalles:hover {
+    background-color: #b24a4a;
+    color: white;
+}

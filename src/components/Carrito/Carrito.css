@@ -1,0 +1,27 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ir-al-menu {
+    color: brown;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+.ir-al-menu:hover {
+    text-decoration: underline;
+}
+
+.carrito-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.precio-total {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
