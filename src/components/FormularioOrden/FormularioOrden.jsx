@@ -78,9 +78,9 @@ const FormularioOrden = () => {
             </>
             :
             <>
-            <p className='precio-total mt-3'>Total= ${precioTotal()}</p> 
-            <button type="submit" className="emitir-compra mt-3">Emitir compra</button>
-          </>
+              <p className='precio-total mt-3'>Total= ${precioTotal()}</p> 
+              <button type="submit" className="emitir-compra mt-3">Emitir compra</button>
+            </>
           }
         </form>
       </div>
