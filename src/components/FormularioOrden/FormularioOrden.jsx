@@ -10,6 +10,7 @@ const FormularioOrden = () => {
   const [emailComprador, setearEmailComprador] = useState('');
   const [direccionComprador, setearDireccionComprador] = useState('');
   const {carrito, precioTotal} = UsarContextCarrito();
+  const [irAlMenu, setIrAlMenu] = useState(false);
   const {vaciarCarrito} = UsarContextCarrito();
 
   const db = getFirestore();
@@ -25,6 +26,7 @@ const FormularioOrden = () => {
 
   const manejarClick = (e) => {
     e.preventDefault();
+    setIrAlMenu(true);
 
     const orden = {
       comprador: {
@@ -39,11 +41,8 @@ const FormularioOrden = () => {
 
     addDoc(ColeccionOrdenes, orden)
     .then((docRef) => {
-      setTimeout(() => {
-        console.log('Documento enviado. ID:', docRef.id);
-        resetearForm();
-        alert("¡Muchas gracias por su compra! Nos contactaremos a su mail a la brevedad.");
-      }, 2000);
+      console.log('Documento enviado. ID:', docRef.id);
+      resetearForm();
     })
     .catch((e) => {
       console.log('Error al agregar el documento', e);
@@ -64,21 +63,26 @@ const FormularioOrden = () => {
             <input type="text" value={telefonoComprador} className='input-formularios' onChange={(e) => setearTelefonoComprador(e.target.value)} />
           </label>
           <label className='textos-label'>
-            Email   :   
+            Email:   
             <input type="email" value={emailComprador} className='input-formularios' onChange={(e) => setearEmailComprador(e.target.value)} />
           </label>
           <label className='textos-label'>
             Dirección:
             <input type="text" value={direccionComprador} className='input-formularios' onChange={(e) => setearDireccionComprador(e.target.value)} />
           </label>
-          <button type="submit" className="emitir-compra mt-5">Realizar compra</button>
+          {
+            irAlMenu ?
+            <>
+              <p className='texto mt-3'>¡Muchas gracias por su compra! Nos contactaremos a su mail a la brevedad.</p>
+              <Link to='/' className='ir-al-menu mt-3'>Volver Al Menú</Link>
+            </>
+            :
+            <>
+            <p className='precio-total mt-3'>Total= ${precioTotal()}</p> 
+            <button type="submit" className="emitir-compra mt-3">Emitir compra</button>
+          </>
+          }
         </form>
-        <div className='botones-orden mt-3'>
-          <p className='precio-total'>
-            Total= ${precioTotal()}
-          </p>
-          <Link to='/' className='ir-al-menu mt-5'>Seguir Comprando</Link>
-        </div>
       </div>
     </>
   )
