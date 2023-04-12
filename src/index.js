@@ -7,8 +7,10 @@ import ListaItemsContainer from './components/ListaItemsContainer/ListaItemsCont
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DetallesContainer from './components/DetallesContainer/DetallesContainer';
+import FormularioOrden from './components/FormularioOrden/FormularioOrden';
 import CarritoProveedor from './CarritoContext';
 import './config'
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +24,7 @@ root.render(
           <Route exact path='/categoria/:categoriaId' element={<ListaItemsContainer/>} />
           <Route exact path='/carrito' element={<Carrito/>} />
           <Route exact path='/detalle/:detalleId' element={<DetallesContainer/>} />
+          <Route exact path='/formulario' element={<FormularioOrden/>} />
         </Routes>
       </CarritoProveedor>
     </BrowserRouter>
